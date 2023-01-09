@@ -13,15 +13,16 @@ import io.micronaut.data.repository.CrudRepository
 @MappedEntity("bananas-1")
 class BananaV1(
 
+    @field:Id
+    @GeneratedValue(IDENTITY)
+    var id: String?,
+
     val name: String,
 
     @Relation(MANY_TO_ONE)
-    val fruit: FruitV1? = null,
+    val fruit: FruitV1,
 ) {
-
-    @Id
-    @GeneratedValue(IDENTITY)
-    var id: String = ""
+    constructor(name: String, fruit: FruitV1) : this(null, name, fruit)
 }
 
 

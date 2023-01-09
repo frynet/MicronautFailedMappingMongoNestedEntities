@@ -26,7 +26,7 @@ class TestService(
 ) {
 
     fun createFruitV1() {
-        val fruit = fruitRepoV1.save(FruitV1("123"))
+        val fruit = fruitRepoV1.save(FruitV1("123", emptyList()))
 
         val bananas = setOf(
             bananaRepoV1.save(BananaV1("1", fruit)),
@@ -40,23 +40,23 @@ class TestService(
 
     fun createFruitV2() {
 
-        val bananas = setOf(
+        val bananas = listOf(
             bananaRepoV2.save(BananaV2("1")),
             bananaRepoV2.save(BananaV2("2")),
             bananaRepoV2.save(BananaV2("3")),
         )
 
-        fruitRepoV2.save(FruitV2("123", bananas.toMutableSet()))
+        fruitRepoV2.save(FruitV2("123", bananas))
     }
 
     fun createFruitV3() {
 
-        val bananas = setOf(
+        val bananas = listOf(
             bananaRepoV3.save(BananaV3("1")),
             bananaRepoV3.save(BananaV3("2")),
             bananaRepoV3.save(BananaV3("3")),
         )
 
-        fruitRepoV3.save(FruitV3("123", bananas.toMutableSet()))
+        fruitRepoV3.save(FruitV3("123", bananas))
     }
 }

@@ -11,12 +11,13 @@ import io.micronaut.data.repository.CrudRepository
 @MappedEntity("bananas-2")
 class BananaV2(
 
+    @field:Id
+    @GeneratedValue(IDENTITY)
+    var id: String?,
+
     val name: String,
 ) {
-
-    @Id
-    @GeneratedValue(IDENTITY)
-    var id: String = ""
+    constructor(name: String) : this(null, name)
 }
 
 
